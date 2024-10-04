@@ -8,16 +8,24 @@
 
         header{
             color: aliceblue;
+            margin: 2%;
+            padding: 2%;
             background-color: blue;
             text-align: center;
         }
 
         footer{
+            margin: 2%;
+            padding: 2%;
             color: aliceblue;
             background-color: blue;
             text-align: center;
         }
-    </style>    
+        
+    </style> 
+
+    <!-- <link rel="stylesheet" href="alternative files/styles.css">    -->
+
 </head>
 <body>
     <header>
@@ -25,12 +33,12 @@
     </header>
 
     <ID_calculator class="calculator_cell">
-        <p>dnešní datum</p>
+        <p id="datum_now">dnešní datum</p>
         <h2>hodnota</h2>
     </ID_calculator>
 
     <ID_zpetne class="calculator_cell">
-        <input type="text">
+        <input type="text" name="ID_value" >
         <h2>výsledek</h2>
     </ID_zpetne>
 
@@ -47,7 +55,8 @@
 <script>
 
 
-document.getElementById("demo").innerHTML = "ahojysdf"
+    document.getElementById("demo").innerHTML = "ahojysdf";
+    document.getElementById("datum_now").innerHTML = Date();
 
 </script>
 
