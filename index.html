@@ -13,9 +13,11 @@
 
         body {
             background-color: antiquewhite;
+            color: rgb(26, 34, 74);
             text-align: center;
-            margin: 0%;
-            padding: 0%;
+            margin: 0;
+            padding: 0;
+            height: 100%;
 
             font-family: "Space Grotesk", sans-serif;
             font-optical-sizing: auto;
@@ -23,44 +25,73 @@
             font-style: normal;
         }
 
-        h2, h1, p {
-            margin: 1%;
-            padding: 1%;
-        }
 
         header, footer {
             background-color: rgb(26, 34, 74);
             color: beige;
-            padding: 20px 50px;
+            padding: 15px 0px;
             margin: 0px 0px;
-        
+        }
+
+        h1{
+            margin: 5px;
+        }
+
+        P{
+            margin: 5px;
+            padding: 0px;
+
+        }
+
+        input{
+            height: 5vw;
+            width: 30vw;
+            margin: 10px;
+        }  
+
+        button{
+            width: 25vw;
+            height: 5vw;
+            background-color: rgb(26, 34, 74);
+            color: beige;
         }
 
         #selection {
-            
+
+            color: antiquewhite;
+
+            display: flex;
+            justify-content: space-evenly;
+            margin: 10px;
+            flex-wrap: wrap;
+
         }
-        
+
         .odstavec {
-            background-color: brown;
-            padding: 0px;
-            margin: 0px 0px;
-        }
-
-        #aktualniID{
-            background-color: antiquewhite;
-        }
-        
-        #ID_result{
-            background-color: antiquewhite;
-            font-size: 500%;
+            width: 40vw;
             margin: 0px;
-            padding: 0px;
-            
+            padding: 0vw 2vw;
+            background-color: brown;
+            border-radius: 20px;
+            box-shadow: 5px 5px 10px black;
         }
 
-        footer{
-
+        #vysledne_ID{
+            font-size: 20vw;
+            margin: 0px;
         }
+
+        #rozlozene_hodnoty {
+            display: flex;
+            justify-content: center;
+        }
+
+        .info{
+            padding: 10px;
+        }
+
+
+  
 
     </style> 
 
@@ -72,23 +103,22 @@
         <h1 id="nadpis">ID kalkulačka</h1>
     </header>
 
-    <div class="odstavec" id="aktualniID">
+    <div id="aktualniID">
             
         <h1 id="nadpis">Výpočet aktuálního ID</h1>
-        <p id="datum_now">dnešní datum</p>
         <button id="btn_aktualni_ID">Aktuální ID</button>
-        <div id="zakladni_hodnoty">
-            <p id="den">Den:</p>
-            <p id="rok">Rok:</p>
-            <p id="hod">Hodiny:</p>
-            <p id="min">Minuty:</p>
-            <p id="mes">Měsíc:</p>
+        <p id="datum_now">dnešní datum</p>
+        <div id="rozlozene_hodnoty">
+            <p class="info" id="den">Den:</p>
+            <p class="info" id="rok">Rok:</p>
+            <p class="info" id="hod">Hodiny:</p>
+            <p class="info" id="min">Minuty:</p>
+            <p class="info" id="mes">Měsíc:</p>
             <br>
         </div>
-        <div class="odstavec" id="ID_result">
-            <h2 id="vysledne_ID">hodnota ID</h2>
-            <br>
-        </div>
+        <h2 id="vysledne_ID">ID</h2>
+        <br>
+    
     </div>
 
 
@@ -97,23 +127,35 @@
         <div class="odstavec">  
             <h1>Výpočet ID z data</h1>
             <label for="datum_vyber">Vyber datum a čas:</label>
-            <input type="datetime" id="datum_vyber" name="datum_vyber">
+            <br>
+            <input type="datetime-local" id="datum_vyber" name="datum_vyber">
+            <br>
             <button id="btn_vypocet_ID">Výpočet ID</button>
-            <h2 id="test">test</h2>
+
+            <div id="rozlozene_hodnoty">
+                <p class="info" id="Vyber_den">Den: </p>
+                <p class="info" id="Vyber_rok">Rok: </p>
+                <p class="info" id="Vyber_hod">Hodiny: </p>
+                <p class="info" id="Vyber_min">Minuty: </p>
+                <p class="info" id="Vyber_mes">Měsíc: </p>
+            </div>
             <h2 id="vypocet">Výsledek</h2>
+            <br>
         </div>
     
         <div class="odstavec">
             <h1>Výpočet data z ID</h1>
             <label for="ID_value">Zadej ID:</label>
+            <br>
             <input type="text" name="ID_value" placeholder="DYhhmmM" id="ID_value">
+            <br>
             <button id="btn_spocitej">Výpočet data</button>
-            <div>
-                <p id="ID_den">Den: </p>
-                <p id="ID_rok">Rok: </p>
-                <p id="ID_hod">Hodiny: </p>
-                <p id="ID_min">Minuty: </p>
-                <p id="ID_mes">Měsíc: </p>
+            <div id="rozlozene_hodnoty">
+                <p class="info" id="ID_den">Den: </p>
+                <p class="info" id="ID_rok">Rok: </p>
+                <p class="info" id="ID_hod">Hodiny: </p>
+                <p class="info" id="ID_min">Minuty: </p>
+                <p class="info" id="ID_mes">Měsíc: </p>
             </div>
             <h2 id="vysledek">Výsledek</h2>
             <br>
@@ -173,8 +215,30 @@
     }
 
     function vypocet_ID () {
-        zadane_datum = document.getElementById("datum_vyber").value;
-        document.getElementById("test").innerHTML = zadane_datum;
+        
+        let zadane_datum = document.getElementById("datum_vyber");
+        
+        
+        let sel_den = zadane_datum.value.slice(8,10);
+        let sel_den_conv = kod_den[sel_den-1];
+        let sel_rok = zadane_datum.value.slice(3,4);
+        let sel_hod = zadane_datum.value.slice(11,13);
+        let sel_min = zadane_datum.value.slice(14,16);
+        let sel_mes = zadane_datum.value.slice(5,7);
+        let sel_mes_conv = kod_mes[sel_mes-1];
+        
+        // document.getElementById("test").innerHTML = zadane_datum.value;
+        document.getElementById("Vyber_den").innerHTML = "Den: " + sel_den_conv;
+        document.getElementById("Vyber_rok").innerHTML = "Rok: " + sel_rok;
+        document.getElementById("Vyber_hod").innerHTML = "Hodina: " + sel_hod;
+        document.getElementById("Vyber_min").innerHTML = "Minuta: " + sel_min;
+        document.getElementById("Vyber_mes").innerHTML = "Měsíc: " + sel_mes_conv;
+        
+        document.getElementById("vypocet").innerHTML = sel_den_conv
+                                                        + sel_rok
+                                                        + sel_hod
+                                                        + sel_min
+                                                        + sel_mes_conv;
     }
 
     function vypocet_data (){
