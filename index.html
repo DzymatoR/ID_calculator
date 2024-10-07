@@ -4,34 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ID calculator</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+
     <style>
 
         body {
-            background-color: lightgray;
-        }
-
-        header {
-            color: aliceblue;
-            margin: 2%;
-            padding: 2%;
-            background-color: blue;
+            background-color: antiquewhite;
             text-align: center;
+            margin: 0%;
+            padding: 0%;
+
+            font-family: "Space Grotesk", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-style: normal;
         }
 
-        #odstavec {
+        h2, h1, p {
+            margin: 1%;
+            padding: 1%;
+        }
+
+        header, footer {
+            background-color: rgb(26, 34, 74);
+            color: beige;
+            padding: 20px 50px;
+            margin: 0px 0px;
         
-            /* background-color: blueviolet; */
-            color: rgb(60, 0, 70);
-            margin: 100px;
-            background-color: aqua;
+        }
+
+        #selection {
+            
+        }
+        
+        .odstavec {
+            background-color: brown;
+            padding: 0px;
+            margin: 0px 0px;
+        }
+
+        #aktualniID{
+            background-color: antiquewhite;
+        }
+        
+        #ID_result{
+            background-color: antiquewhite;
+            font-size: 500%;
+            margin: 0px;
+            padding: 0px;
+            
         }
 
         footer{
-            margin: 2%;
-            padding: 2%;
-            color: aliceblue;
-            background-color: blue;
-            text-align: center;
+
         }
 
     </style> 
@@ -41,13 +69,14 @@
 </head>
 <body>
     <header>
-        <h1 id="">ID kalkulačka</h1>
+        <h1 id="nadpis">ID kalkulačka</h1>
     </header>
 
-    <ID_calculator id="odstavec">
-        <h1 id="nadpis">Výpočet ID z data</h1>
+    <div class="odstavec" id="aktualniID">
+            
+        <h1 id="nadpis">Výpočet aktuálního ID</h1>
         <p id="datum_now">dnešní datum</p>
-        <button id="btn_generujID">Generuj ID</button>
+        <button id="btn_aktualni_ID">Aktuální ID</button>
         <div id="zakladni_hodnoty">
             <p id="den">Den:</p>
             <p id="rok">Rok:</p>
@@ -55,33 +84,47 @@
             <p id="min">Minuty:</p>
             <p id="mes">Měsíc:</p>
             <br>
+        </div>
+        <div class="odstavec" id="ID_result">
             <h2 id="vysledne_ID">hodnota ID</h2>
             <br>
         </div>
-    </ID_calculator>
+    </div>
 
-    <ID_zpetne id="odstavec">
-        <h1>Výpočet data z ID</h1>
-        <label for="ID_value">Zadej ID:</label>
-        <input type="text" name="ID_value" placeholder="DYhhmmM" id="ID_value">
-        <button id="btn_spocitej">Spočítej</button>
-        <div>
-            <p id="ID_den">Den: </p>
-            <p id="ID_rok">Rok: </p>
-            <p id="ID_hod">Hodiny: </p>
-            <p id="ID_min">Minuty: </p>
-            <p id="ID_mes">Měsíc: </p>
+
+    <div id="selection">
+           
+        <div class="odstavec">  
+            <h1>Výpočet ID z data</h1>
+            <label for="datum_vyber">Vyber datum a čas:</label>
+            <input type="datetime" id="datum_vyber" name="datum_vyber">
+            <button id="btn_vypocet_ID">Výpočet ID</button>
+            <h2 id="test">test</h2>
+            <h2 id="vypocet">Výsledek</h2>
         </div>
-        <h2 id="vysledek">Výsledek</h2>
-        <br>
-    </ID_zpetne>
+    
+        <div class="odstavec">
+            <h1>Výpočet data z ID</h1>
+            <label for="ID_value">Zadej ID:</label>
+            <input type="text" name="ID_value" placeholder="DYhhmmM" id="ID_value">
+            <button id="btn_spocitej">Výpočet data</button>
+            <div>
+                <p id="ID_den">Den: </p>
+                <p id="ID_rok">Rok: </p>
+                <p id="ID_hod">Hodiny: </p>
+                <p id="ID_min">Minuty: </p>
+                <p id="ID_mes">Měsíc: </p>
+            </div>
+            <h2 id="vysledek">Výsledek</h2>
+            <br>
+        </div>
+
+    </div>
 
     <footer id="footer">
         <h4>created by: DŽYM</h4>
         <h4>2024</h4>
     </footer>
-
-    <p id="demo">demo</p>
 
     
 </body>
@@ -91,11 +134,11 @@
     const kod_den = [1,2,3,4,5,6,7,8,9,0,"A","B","C","D","E","F","G","H","I","J","K","L","M","N","R","S","T","U","V","W","X","Y","Z" ]
     const kod_mes = ["A","B","C","D","E","F","G","H","I","J","K","L"]
 
-    function vypocet_ID (){
+    function aktualni_ID (){
 
         const now = new Date();
 
-        const now_den = now.getDay()-1;
+        const now_den = now.getDate();
         const now_den_conv = kod_den[now_den-1];
         const now_rok = now.getFullYear();
         const now_rok_conv = now.getFullYear().toString().slice(-1);
@@ -104,8 +147,6 @@
         const now_mes = now.getMonth()+1;
         const now_mes_conv = kod_mes[now_mes-1];
        
-
-
         document.getElementById("datum_now").innerHTML = "Aktuálně: " 
                                                         + now_den 
                                                         + "/" 
@@ -123,13 +164,17 @@
         document.getElementById("min").innerHTML = "Minuta: " + now_min;
         document.getElementById("mes").innerHTML = "Měsíc: " + now_mes_conv;
    
-        document.getElementById("vysledne_ID").innerHTML = "ID: " 
-                                                            + now_den_conv 
+        document.getElementById("vysledne_ID").innerHTML =  + now_den_conv 
                                                             + now_rok_conv 
                                                             + now_hod 
                                                             + now_min 
                                                             + now_mes_conv; 
 
+    }
+
+    function vypocet_ID () {
+        zadane_datum = document.getElementById("datum_vyber").value;
+        document.getElementById("test").innerHTML = zadane_datum;
     }
 
     function vypocet_data (){
@@ -171,13 +216,15 @@
     
             // document.getElementById("demo").innerHTML = hodnota_ID.length;
    
-
     }
 
-    document.getElementById("btn_generujID").addEventListener("click", vypocet_ID);
+
+
+    document.getElementById("btn_aktualni_ID").addEventListener("click", aktualni_ID);
+    document.getElementById("btn_vypocet_ID").addEventListener("click", vypocet_ID);
     document.getElementById("btn_spocitej").addEventListener("click", vypocet_data);
 
-    setInterval(vypocet_ID,60000);
+    setInterval(aktualni_ID,60000);
 
 </script>
 
