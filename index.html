@@ -15,45 +15,49 @@
             background-color: antiquewhite;
             color: rgb(26, 34, 74);
             text-align: center;
-            margin: 0;
-            padding: 0;
-            height: 100%;
 
             font-family: "Space Grotesk", sans-serif;
             font-optical-sizing: auto;
             font-weight: 700;
             font-style: normal;
+
+            margin:  0;
+            padding: 0;
+
+            width: 100vw;
+            height: 100vh;
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
         }
 
 
         header, footer {
             background-color: rgb(26, 34, 74);
             color: beige;
-            padding: 15px 0px;
-            margin: 0px 0px;
+           
         }
 
-        h1{
-            margin: 5px;
-        }
-
-        P{
-            margin: 5px;
-            padding: 0px;
-
+        h1, p{
+            margin: 1% 5%;
         }
 
         input{
-            height: 5vw;
+            padding: 1vh ;
             width: 30vw;
-            margin: 10px;
+            margin: 1vw;
         }  
 
         button{
-            width: 25vw;
-            height: 5vw;
+
             background-color: rgb(26, 34, 74);
             color: beige;
+            margin: 0vh 5vw;
+            margin-bottom: 1vh;
+            height: 4vh;
+            width: 20vw;
+
         }
 
         #selection {
@@ -61,34 +65,41 @@
             color: antiquewhite;
 
             display: flex;
-            justify-content: space-evenly;
-            margin: 10px;
             flex-wrap: wrap;
+            justify-content: center;
 
         }
 
         .odstavec {
-            width: 40vw;
-            margin: 0px;
-            padding: 0vw 2vw;
+            width: 45vw;
+            margin: 1vw;
+            padding: 1vw;
             background-color: brown;
             border-radius: 20px;
             box-shadow: 5px 5px 10px black;
+            
         }
 
         #vysledne_ID{
-            font-size: 20vw;
-            margin: 0px;
+            font-size: 20vh;
+            padding: 0vh;
+            margin: -3vh;
         }
 
         #rozlozene_hodnoty {
             display: flex;
-            justify-content: center;
+            flex-wrap: wrap;
+            justify-content:center;
         }
 
         .info{
-            padding: 10px;
+            
         }
+
+        footer{
+            margin-top: auto;
+        }
+
 
 
   
@@ -259,14 +270,14 @@
             let hodnota_ID_mes_conv = kod_mes.indexOf(hodnota_ID_mes)+1;
             const aktualni_rok = new Date();
 
-            document.getElementById("ID_den").innerHTML = "Den: " + hodnota_ID_den;
+            document.getElementById("ID_den").innerHTML = "Den: " + hodnota_ID_den_conv;
             document.getElementById("ID_rok").innerHTML = "Rok: 202" + hodnota_ID_rok;
             document.getElementById("ID_hod").innerHTML = "Hodina: " + hodnota_ID_hod;
             document.getElementById("ID_min").innerHTML = "Minuta: " + hodnota_ID_min;
             document.getElementById("ID_mes").innerHTML = "Měsíc: " + hodnota_ID_mes_conv;
 
             document.getElementById("vysledek").innerHTML = "Vyrobeno: " 
-                                                            + hodnota_ID_den 
+                                                            + hodnota_ID_den_conv 
                                                             + "/" 
                                                             + hodnota_ID_mes_conv
                                                             + "/"
