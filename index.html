@@ -12,103 +12,112 @@
     <style>
 
         body {
-            background-color: antiquewhite;
-            color: rgb(26, 34, 74);
+            background-color: #f3f4f6; /* Jemná světlá barva */
+            color: #1a224a; /* Sytější barva textu */
             text-align: center;
-
             font-family: "Space Grotesk", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 700;
-            font-style: normal;
-
-            margin:  0;
+            margin: 0;
             padding: 0;
-
-            width: 100vw;
-            height: 100vh;
-            min-height: 100vh;
-
             display: flex;
             flex-direction: column;
+            min-height: 100vh;
         }
-
 
         header, footer {
-            background-color: rgb(26, 34, 74);
-            color: beige;
-           
+            background-color: #1a224a; /* Tmavá kontrastní barva */
+            color: #f8f9fa;
+            padding: 1rem 0;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        h1, p{
+        h1, p {
             margin: 1% 5%;
         }
 
-        #den, #rok, #mes{
-            color: brown;
-            font-size: xx-large;
+        #den, #rok, #mes {
+            color: #d97706; /* Barva s pastelovým odstínem */
+            font-size: 1.5rem;
         }
 
-        input{
-            padding: 1vh ;
-            width: 30vw;
-            margin: 1vw;
-        }  
+        input {
+            padding: 0.5rem;
+            width: 80%;
+            max-width: 400px;
+            margin: 1rem auto;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
 
-        button{
+        button {
+            background-color: #1a224a;
+            color: #f8f9fa;
+            margin: 1rem auto;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
 
-            background-color: rgb(26, 34, 74);
-            color: beige;
-            margin: 0vh 5vw;
-            margin-bottom: 1vh;
-            height: 4vh;
-            width: 20vw;
-
+        button:hover {
+            background-color: #d97706; /* Zvýraznění při hover */
+            transform: scale(1.05); /* Mírné zvětšení */
         }
 
         #selection {
-
-            color: antiquewhite;
-
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-
+            gap: 2rem;
+            padding: 1rem;
         }
 
         .odstavec {
-            width: 45vw;
-            margin: 1vw;
-            padding: 1vw;
-            background-color: brown;
-            border-radius: 20px;
-            box-shadow: 5px 5px 10px black;
-            
+            width: 100%;
+            max-width: 400px;
+            margin: 1rem auto;
+            padding: 1.5rem;
+            background-color: #fff;
+            border-radius: 16px;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
         }
 
-        #vysledne_ID{
-            font-size: 20vh;
-            color: brown;
-            padding: 0vh;
-            margin: -3vh;
+        .odstavec:hover {
+            transform: translateY(-5px);
         }
 
-        #rozlozene_hodnoty {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content:center;
+        #vysledne_ID {
+            font-size: 3rem;
+            color: #d97706;
+            margin: 1rem 0;
         }
 
-        .info{
-            
-        }
-
-        footer{
+        footer {
             margin-top: auto;
+            padding: 1rem 0;
+            font-size: 0.8rem;
+            background-color: #1a224a;
+            color: #f8f9fa;
         }
 
+        footer h4 {
+            margin: 0.2rem 0;
+        }
 
+        /* Media Queries */
+        @media (max-width: 768px) {
+            button {
+                width: 90%;
+            }
 
-  
+            #selection {
+                flex-direction: column;
+            }
+        }
+
 
     </style> 
 
