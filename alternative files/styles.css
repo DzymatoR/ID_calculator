@@ -1,8 +1,158 @@
-
-header {
-    background-color: aqua;
+body {
+    background-color: #f3f4f6; /* Jemná světlá barva */
+    color: #1a224a; /* Sytější barva textu */
+    text-align: center;
+    font-family: "Space Grotesk", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-h1 {
-    color: brown;
+header, footer {
+    background-color: #1a224a;
+    color: #f8f9fa;
+    padding: 1rem 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+h1, p {
+    margin: 1% 5%;
+}
+
+
+.stitky{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.p_stitek{
+    font-size: 3vw;
+}
+
+.h1_stitek{
+    font-size: 15vw;
+}
+
+.ID_stitek{
+    background-color: #fef3c7;
+    color: #1a224a;
+    border-radius: 15px;
+    margin: 1vw;
+    padding: 2vw;
+    min-width: 12%;
+}
+
+.ID_stitek#zadat{
+    background-color: #1a224a;
+    color: #fef3c7;
+}
+
+#aktualniID {
+    width: 100%; /* Zabírá celou šířku */
+    background-color: #d97706; /* Pastelová barva pro zvýraznění */
+    color: #f8f9fa;
+    padding: 2rem 0;
+    box-shadow: inset 0px -4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#den, #rok, #mes {
+    color: #fef3c7; /* Jemný kontrastní text */
+    font-size: 1.5rem;
+}
+
+input {
+    padding: 0.8rem;
+    width: 90%;
+    max-width: 400px;
+    margin: 1rem auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+button {
+    background-color: #1a224a;
+    color: #f8f9fa;
+    margin: 1rem auto;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #d97706;
+    transform: scale(1.05);
+}
+
+#selection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.odstavec {
+    width: 100%;
+    max-width: 400px;
+    margin: 1rem auto;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.odstavec:hover {
+    transform: translateY(-5px);
+}
+
+#vysledne_ID {
+    font-size: 3rem;
+    color: #fef3c7;
+    margin: 1rem 0;
+}
+
+footer {
+    margin-top: auto;
+    padding: 1rem 0;
+    font-size: 0.8rem;
+    background-color: #1a224a;
+    color: #f8f9fa;
+}
+
+footer h4 {
+    margin: 0.2rem 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    body {
+        font-size: 90%; /* Zmenšení textu na mobilu */
+    }
+
+    button {
+        width: 90%;
+    }
+
+    #selection {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    #aktualniID {
+        padding: 1.5rem 0; /* Zmenší padding na menších displejích */
+    }
+
+    h1, p {
+        margin: 1rem 3%;
+    }
+}
+
