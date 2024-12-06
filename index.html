@@ -13,7 +13,7 @@
 
         body {
             background-color: #f3f4f6; /* Jemná světlá barva */
-            color: #1a224a; /* Sytější barva textu */
+            color:#fef3c7; 
             text-align: center;
             font-family: "Space Grotesk", sans-serif;
             margin: 0;
@@ -24,8 +24,8 @@
         }
 
         header, footer {
-            background-color: #1a224a; /* Tmavá kontrastní barva */
-            color: #f8f9fa;
+            background-color: #1a224a;
+            color: #fef3c7; 
             padding: 1rem 0;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
@@ -33,15 +33,57 @@
         h1, p {
             margin: 1% 5%;
         }
+        
+
+        .stitky{
+            display: flex;
+            justify-content: center;
+            
+        }
+
+        .p_stitek{
+            font-size: 3vw;
+        }
+
+        .h1_stitek{
+            font-size: 15vw;
+        }
+
+        .ID_stitek{
+            background-color: #fef3c7;
+            color: #1a224a;
+            border-radius: 15px;
+            margin: 1vw;
+            padding: 2vw;
+            min-width: 12%;
+        }
+
+        .ID_stitek#zadat{
+            background-color: #1a224a;
+            color: #fef3c7;
+        }
+
+        #datum_now{
+            font-size: xx-large;
+        }
+
+        #aktualniID {
+            width: 100%; /* Zabírá celou šířku */
+            background-color: #d97706; /* Pastelová barva pro zvýraznění */
+            color: #fef3c7;
+            padding: 2rem 0;
+            box-shadow: inset 0px -4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
 
         #den, #rok, #mes {
-            color: #d97706; /* Barva s pastelovým odstínem */
+            color: #fef3c7; /* Jemný kontrastní text */
             font-size: 1.5rem;
         }
 
         input {
-            padding: 0.5rem;
-            width: 80%;
+            padding: 0.8rem;
+            width: 90%;
             max-width: 400px;
             margin: 1rem auto;
             border: 1px solid #ccc;
@@ -51,7 +93,7 @@
 
         button {
             background-color: #1a224a;
-            color: #f8f9fa;
+            color: #fef3c7;
             margin: 1rem auto;
             padding: 0.8rem 2rem;
             border: none;
@@ -62,11 +104,12 @@
         }
 
         button:hover {
-            background-color: #d97706; /* Zvýraznění při hover */
-            transform: scale(1.05); /* Mírné zvětšení */
+            background-color: #d97706;
+            transform: scale(1.05);
         }
 
         #selection {
+            background-color: #fef3c7;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -79,7 +122,7 @@
             max-width: 400px;
             margin: 1rem auto;
             padding: 1.5rem;
-            background-color: #fff;
+            background-color:#d97706;
             border-radius: 16px;
             box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s;
@@ -91,7 +134,7 @@
 
         #vysledne_ID {
             font-size: 3rem;
-            color: #d97706;
+            color: #fef3c7;
             margin: 1rem 0;
         }
 
@@ -100,7 +143,7 @@
             padding: 1rem 0;
             font-size: 0.8rem;
             background-color: #1a224a;
-            color: #f8f9fa;
+            color: #fef3c7;
         }
 
         footer h4 {
@@ -109,12 +152,25 @@
 
         /* Media Queries */
         @media (max-width: 768px) {
+            body {
+                font-size: 90%; /* Zmenšení textu na mobilu */
+            }
+
             button {
                 width: 90%;
             }
 
             #selection {
                 flex-direction: column;
+                gap: 1rem;
+            }
+
+            #aktualniID {
+                padding: 1.5rem 0; /* Zmenší padding na menších displejích */
+            }
+
+            h1, p {
+                margin: 1rem 3%;
             }
         }
 
@@ -134,16 +190,31 @@
         <h1 id="nadpis">Výpočet aktuálního ID</h1>
         <button id="btn_aktualni_ID">Aktuální ID</button>
         <p id="datum_now">dnešní datum</p>
-        <div id="rozlozene_hodnoty">
-            <p class="info" id="den">Den:</p>
-            <p class="info" id="rok">Rok:</p>
-            <p class="info" id="hod">Hodiny:</p>
-            <p class="info" id="min">Minuty:</p>
-            <p class="info" id="mes">Měsíc:</p>
-            <br>
-        </div>
+      
         <h2 id="vysledne_ID">ID</h2>
         <br>
+        <div class="stitky">
+            <div class="ID_stitek" id="zadat">
+                <p class="p_stitek">DEN:</p>
+                <h1 class="h1_stitek" id="hodnota_stitek_den">-</h1>
+            </div>
+            <div class="ID_stitek" id="zadat">
+                <p class="p_stitek">ROK:</p>
+                <h1 class="h1_stitek" id="hodnota_stitek_rok">-</h1>
+            </div>
+            <div class="ID_stitek" id="auto">
+                <p class="p_stitek">HODINA:</p>
+                <h1 class="h1_stitek" id="hodnota_stitek_hodina">-</h1>
+            </div>
+            <div class="ID_stitek" id="auto">
+                <p class="p_stitek">MINUTA:</p>
+                <h1 class="h1_stitek" id="hodnota_stitek_minuta">-</h1>
+            </div>
+            <div class="ID_stitek" id="zadat">
+                <p class="p_stitek">MĚSÍC:</p>
+                <h1 class="h1_stitek" id="hodnota_stitek_mesic">-</h1>
+            </div>
+        </div>
     
     </div>
 
@@ -199,7 +270,7 @@
 
 <script>
 
-    const kod_den = [1,2,3,4,5,6,7,8,9,0,"A","B","C","D","F","G","H","J","K","L","M","N","R","S","T","U","V","W","X","Y","Z" ]
+    const kod_den = ["1","2","3","4","5","6","7","8","9","0","A","B","C","D","F","G","H","J","K","L","M","N","R","S","T","U","V","W","X","Y","Z" ]
     const kod_mes = ["A","B","C","D","F","G","H","J","K","L","M","N"]
 
     function aktualni_ID (){
@@ -225,13 +296,7 @@
                                                         + now_hod 
                                                         + ":" 
                                                         + now_min;
-        
-        document.getElementById("den").innerHTML = "Den: " + now_den_conv;
-        document.getElementById("rok").innerHTML = "Rok: " + now_rok_conv;
-        document.getElementById("hod").innerHTML = "Hodina: " + now_hod;
-        document.getElementById("min").innerHTML = "Minuta: " + now_min;
-        document.getElementById("mes").innerHTML = "Měsíc: " + now_mes_conv;
-   
+           
         document.getElementById("vysledne_ID").innerHTML =  now_den_conv 
                                                             + now_rok_conv 
                                                             + "<span style='color: rgb(26, 34, 74);'>"
@@ -239,6 +304,12 @@
                                                             + now_min 
                                                             + "</span>"
                                                             + now_mes_conv; 
+
+        document.getElementById("hodnota_stitek_den").innerHTML = now_den_conv;
+        document.getElementById("hodnota_stitek_rok").innerHTML = now_rok_conv;
+        document.getElementById("hodnota_stitek_hodina").innerHTML = now_hod;
+        document.getElementById("hodnota_stitek_minuta").innerHTML = now_min;
+        document.getElementById("hodnota_stitek_mesic").innerHTML = now_mes_conv;
 
     }
 
